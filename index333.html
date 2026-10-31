@@ -1,0 +1,260 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>素材库 · GitHub 版（可下载）</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:#0b0f14;color:#e9eff7;padding:16px 14px 40px;
+font:15px/1.5 -apple-system,"PingFang SC",sans-serif}
+h1{font-size:18px;margin:0 0 6px}h1 em{font-style:normal;color:#3ddc97}
+.sub{color:#7a8ba0;font-size:12px;line-height:1.7;margin-bottom:12px}
+.cfg{background:#141c25;border:1px solid #22303f;border-radius:11px;padding:12px;margin-bottom:14px}
+.cfg label{display:block;font-size:11.5px;color:#8497ab;margin-bottom:5px}
+.cfg input{width:100%;background:#0d141b;border:1px solid #22303f;border-radius:7px;
+padding:9px;color:#e9eff7;font:11px ui-monospace;margin-bottom:9px}
+.cfg button{width:100%;border:0;border-radius:8px;padding:10px;font-size:13px;font-family:inherit;
+font-weight:700;background:#3ddc97;color:#06120c;cursor:pointer}
+.hint{font-size:11px;color:#5c6b7d;line-height:1.7;margin-top:7px}
+.it{background:#141c25;border:1px solid #1f2a37;border-radius:10px;padding:11px;margin-bottom:8px}
+.hd{margin-bottom:5px}
+.no{font:600 10.5px ui-monospace;color:#3d4d5a;margin-right:7px}
+.nm{font-size:14px;font-weight:600}
+.fn{font:9.5px ui-monospace;color:#3d4d5a;margin-bottom:8px}
+.btns{display:flex;gap:6px}
+.btns button{flex:1;border:0;border-radius:7px;padding:9px;font-size:12.5px;
+font-family:inherit;font-weight:600;cursor:pointer}
+.b1{background:#3ddc97;color:#06120c}
+.b2{background:#1b2632;color:#c3d2e0}
+.btns button:active{transform:scale(.96)}
+.st{font-size:11px;color:#5c6b7d;margin-top:6px;min-height:15px}
+.st.ok{color:#3ddc97}.st.bad{color:#ff6b6b}
+</style></head><body>
+<h1>素材库 · <em>GitHub 版</em></h1>
+<div class="sub">有 CORS，所以<b style="color:#e9eff7">能真正下载</b>（自定义文件名）</div>
+
+<div class="cfg">
+  <label>你的 GitHub 用户名 / 仓库名（填一次即可）</label>
+  <input id="u" placeholder="例如：zhangsan  ，仓库名：tingli" />
+  <label>仓库名</label>
+  <input id="r" placeholder="例如：tingli" />
+  <button onclick="save()">应用</button>
+  <div class="hint">填完后下面每个按钮就会用你的链接。<br>
+  链接格式：<code>https://cdn.jsdelivr.net/gh/用户名/仓库名@main/audio/文件名</code></div>
+</div>
+
+<div id="list"><div class="it">
+<div class="hd"><span class="no">01</span><span class="nm">叮咚</span></div>
+<div class="fn">00_dingdong.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="0">▶ 播放</button>
+  <button class="b2" data-dl="0">⬇ 下载</button>
+</div>
+<div class="st" id="st0"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">02</span><span class="nm">听力考试正式开始</span></div>
+<div class="fn">01_kaoshi_kaishi.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="1">▶ 播放</button>
+  <button class="b2" data-dl="1">⬇ 下载</button>
+</div>
+<div class="st" id="st1"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">03</span><span class="nm">第1节总指令</span></div>
+<div class="fn">02_zongzhiling_1.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="2">▶ 播放</button>
+  <button class="b2" data-dl="2">⬇ 下载</button>
+</div>
+<div class="st" id="st2"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">04</span><span class="nm">听下面这段录音</span></div>
+<div class="fn">03_tingshuo.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="3">▶ 播放</button>
+  <button class="b2" data-dl="3">⬇ 下载</button>
+</div>
+<div class="st" id="st3"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">05</span><span class="nm">回答第一小题</span></div>
+<div class="fn">04_huida_1.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="4">▶ 播放</button>
+  <button class="b2" data-dl="4">⬇ 下载</button>
+</div>
+<div class="st" id="st4"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">06</span><span class="nm">回答第二小题</span></div>
+<div class="fn">04_huida_2.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="5">▶ 播放</button>
+  <button class="b2" data-dl="5">⬇ 下载</button>
+</div>
+<div class="st" id="st5"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">07</span><span class="nm">回答第三小题</span></div>
+<div class="fn">04_huida_3.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="6">▶ 播放</button>
+  <button class="b2" data-dl="6">⬇ 下载</button>
+</div>
+<div class="st" id="st6"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">08</span><span class="nm">回答第四小题</span></div>
+<div class="fn">04_huida_4.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="7">▶ 播放</button>
+  <button class="b2" data-dl="7">⬇ 下载</button>
+</div>
+<div class="st" id="st7"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">09</span><span class="nm">回答第五小题</span></div>
+<div class="fn">04_huida_5.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="8">▶ 播放</button>
+  <button class="b2" data-dl="8">⬇ 下载</button>
+</div>
+<div class="st" id="st8"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">10</span><span class="nm">第1节到此结束</span></div>
+<div class="fn">05_jieshu_1.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="9">▶ 播放</button>
+  <button class="b2" data-dl="9">⬇ 下载</button>
+</div>
+<div class="st" id="st9"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">11</span><span class="nm">第2节总指令</span></div>
+<div class="fn">06_zongzhiling_2.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="10">▶ 播放</button>
+  <button class="b2" data-dl="10">⬇ 下载</button>
+</div>
+<div class="st" id="st10"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">12</span><span class="nm">读题 第6至7小题</span></div>
+<div class="fn">07_duti_6-7.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="11">▶ 播放</button>
+  <button class="b2" data-dl="11">⬇ 下载</button>
+</div>
+<div class="st" id="st11"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">13</span><span class="nm">读题 第8至10小题</span></div>
+<div class="fn">08_duti_8-10.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="12">▶ 播放</button>
+  <button class="b2" data-dl="12">⬇ 下载</button>
+</div>
+<div class="st" id="st12"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">14</span><span class="nm">读题 第11至13小题</span></div>
+<div class="fn">09_duti_11-13.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="13">▶ 播放</button>
+  <button class="b2" data-dl="13">⬇ 下载</button>
+</div>
+<div class="st" id="st13"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">15</span><span class="nm">读题 第14至16小题</span></div>
+<div class="fn">10_duti_14-16.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="14">▶ 播放</button>
+  <button class="b2" data-dl="14">⬇ 下载</button>
+</div>
+<div class="st" id="st14"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">16</span><span class="nm">读题 第17至20小题</span></div>
+<div class="fn">11_duti_17-20.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="15">▶ 播放</button>
+  <button class="b2" data-dl="15">⬇ 下载</button>
+</div>
+<div class="st" id="st15"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">17</span><span class="nm">第2节到此结束</span></div>
+<div class="fn">12_jieshu_2.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="16">▶ 播放</button>
+  <button class="b2" data-dl="16">⬇ 下载</button>
+</div>
+<div class="st" id="st16"></div>
+</div>
+<div class="it">
+<div class="hd"><span class="no">18</span><span class="nm">听力部分到此结束</span></div>
+<div class="fn">13_quanbu_jieshu.mp3</div>
+<div class="btns">
+  <button class="b1" data-play="17">▶ 播放</button>
+  <button class="b2" data-dl="17">⬇ 下载</button>
+</div>
+<div class="st" id="st17"></div>
+</div></div>
+
+<script>
+var F=[["00_dingdong.mp3","叮咚"],["01_kaoshi_kaishi.mp3","听力考试正式开始"],["02_zongzhiling_1.mp3","第1节总指令"],["03_tingshuo.mp3","听下面这段录音"],["04_huida_1.mp3","回答第一小题"],["04_huida_2.mp3","回答第二小题"],["04_huida_3.mp3","回答第三小题"],["04_huida_4.mp3","回答第四小题"],["04_huida_5.mp3","回答第五小题"],["05_jieshu_1.mp3","第1节到此结束"],["06_zongzhiling_2.mp3","第2节总指令"],["07_duti_6-7.mp3","读题 第6至7小题"],["08_duti_8-10.mp3","读题 第8至10小题"],["09_duti_11-13.mp3","读题 第11至13小题"],["10_duti_14-16.mp3","读题 第14至16小题"],["11_duti_17-20.mp3","读题 第17至20小题"],["12_jieshu_2.mp3","第2节到此结束"],["13_quanbu_jieshu.mp3","听力部分到此结束"]];
+var USER='', REPO='';
+try{ USER=localStorage.getItem('gh_u')||''; REPO=localStorage.getItem('gh_r')||''; }catch(e){}
+document.getElementById('u').value=USER;
+document.getElementById('r').value=REPO;
+
+function url(fn){
+  if(!USER||!REPO) return '';
+  return 'https://cdn.jsdelivr.net/gh/'+USER+'/'+REPO+'@main/audio/'+fn;
+}
+function save(){
+  USER=document.getElementById('u').value.trim();
+  REPO=document.getElementById('r').value.trim();
+  try{ localStorage.setItem('gh_u',USER); localStorage.setItem('gh_r',REPO); }catch(e){}
+  alert(USER&&REPO ? '已保存，现在可以播放和下载了' : '请把两个都填上');
+}
+function setSt(i,t,c){
+  var e=document.getElementById('st'+i);
+  e.textContent=t; e.className='st '+(c||'');
+}
+function play(i){
+  var u=url(F[i][0]);
+  if(!u){ setSt(i,'请先填用户名和仓库名','bad'); return; }
+  var a=new Audio(); a.src=u;
+  a.play().then(function(){ setSt(i,'▶ 播放中','ok'); })
+    .catch(function(e){ setSt(i,'✗ '+e.message,'bad'); });
+  a.onerror=function(){ setSt(i,'✗ 加载失败，检查链接','bad'); };
+}
+function dl(i){
+  var u=url(F[i][0]);
+  if(!u){ setSt(i,'请先填用户名和仓库名','bad'); return; }
+  setSt(i,'下载中…','');
+  fetch(u).then(function(r){
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return r.blob();
+  }).then(function(bl){
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(bl);
+    a.download=F[i][1]+'.mp3';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); },3000);
+    setSt(i,'✓ 已下载 '+(bl.size/1024).toFixed(0)+'KB','ok');
+  }).catch(function(e){
+    setSt(i,'✗ 失败：'+e.message+'（检查文件是否已上传）','bad');
+  });
+}
+document.addEventListener('click',function(e){
+  var b=e.target.closest('button');
+  if(!b) return;
+  if(b.hasAttribute('data-play')) play(+b.getAttribute('data-play'));
+  if(b.hasAttribute('data-dl')) dl(+b.getAttribute('data-dl'));
+});
+</script></body></html>
